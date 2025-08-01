@@ -5,12 +5,13 @@ import {
   updateTag,
   deleteTag
 } from "../controllers/tags/tag-controller.js";
+import { verifyToken } from "../middlewares/verifyToken.js";
 
 const router = express.Router();
 
-router.post("/", createTag);
+router.post("/", verifyToken, createTag);
 router.get("/", getAllTags);
-router.put("/:id", updateTag);
-router.delete("/:id", deleteTag);
+router.put("/:id", verifyToken, updateTag);
+router.delete("/:id", verifyToken, deleteTag);
 
 export default router;

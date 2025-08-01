@@ -8,6 +8,7 @@ export const getUserSavedContent = async (req, res) => {
     console.log(ids)
     const savedContentsIds = ids.map((item) => item.contentId);
     console.log(savedContentsIds)
+
     const savedContents = await Content.aggregate([
       {
         $match: {id: {$in: savedContentsIds}},

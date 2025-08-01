@@ -13,7 +13,7 @@ export const getUnfollowedUsers = async (req, res) => {
     // Tìm tất cả người dùng không nằm trong danh sách following và không phải chính mình
     const users = await User.find({
       id: { $ne: userId, $nin: currentUser.following }
-    }).select("id name avatar level");
+    }).select("id name avatar level authId");
 
     res.status(200).json(users);
   } catch (err) {

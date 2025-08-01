@@ -18,6 +18,6 @@ router.post('/followers', getFollowersByIds);
 router.post('/following', getFollowingByIds);
 router.post('/unfollowed-users', getUnfollowedUsers);
 router.post('/saved-contents', getUserSavedContent);
-router.put('/update-profile/:userId', updateUserProfile);
+router.put('/update-profile/:userId', verifyToken, updateUserProfile);
 
 export default router;

@@ -55,7 +55,7 @@
             foreignField: "id",
             as: "user",
             pipeline: [
-              { $project: { id: 1, name: 1, avatar: 1, date: 1 } },
+              { $project: { id: 1, name: 1, avatar: 1, date: 1, authId: 1 } },
             ],
           },
         },

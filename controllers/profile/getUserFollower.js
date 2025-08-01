@@ -9,7 +9,7 @@ export const getFollowersByIds = async (req, res) => {
     if (!Array.isArray(ids)) return res.status(400).json({ error: 'Invalid format' });
 
     const followers = await User.find({ id: { $in: ids } })
-      .select('id name avatar'); // giới hạn field
+      .select('id name avatar authId'); // giới hạn field
 
     res.json(followers);
   } catch (error) {
