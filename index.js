@@ -33,6 +33,10 @@ app.use("/api/comments", commentsRoute)
 app.use("/api/replies", repliesRoute)
 app.use("/api/tags", tagsRoute)
 
+app.get('/', (req, res) => {
+  res.send('✅ Backend API is running!');
+})
+
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {

@@ -18,6 +18,8 @@ export const verifyToken = (req, res, next) => {
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.userAuthId = decoded.authId; // Thêm thông tin người dùng vào request
+    res.setHeader("Content-Security-Policy",
+  "default-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com");
     console.log("✅ Token verified successfully for user:", decoded.authId);
     next();
   } catch (error) {
